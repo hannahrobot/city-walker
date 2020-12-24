@@ -74,7 +74,7 @@ class Game extends React.Component {
             <Suspense fallback={<Box />}>
               <Girl
                 action={this.state.action}
-                girlPosition={[0, 0, 150]}
+                girlPosition={[0, 0, 200]}
                 stopListening={stopListening}
                 changeWin={this.props.changeWin}
                 setAction={this.voiceAction}

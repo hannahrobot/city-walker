@@ -1,19 +1,19 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { addRecordToDb } from '../store/leaderboard';
+import React from "react";
+import { connect } from "react-redux";
+import { addRecordToDb } from "../store/leaderboard";
 import {
   getGameState,
   resetGameState,
   gameStatePlaying,
   gameStateWin,
-} from '../store/gameState';
-import Leaderboard from './leaderboard';
+} from "../store/gameState";
+import Leaderboard from "./leaderboard";
 
 class WinScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      name: "",
       showModal: false,
       submitted: false,
     };
@@ -24,8 +24,8 @@ class WinScreen extends React.Component {
     this.hoverSound = this.hoverSound.bind(this);
     this.selectSound = this.selectSound.bind(this);
   }
-  toggleSfx = new Audio('./sfx/toggle.mp3');
-  selectSfx = new Audio('./sfx/select.mp3');
+  toggleSfx = new Audio("./sfx/toggle.mp3");
+  selectSfx = new Audio("./sfx/select.mp3");
 
   hoverSound() {
     this.toggleSfx.volume = 0.5;
@@ -70,15 +70,15 @@ class WinScreen extends React.Component {
   render() {
     let elapsedTime = this.props.time;
     let minutes, seconds, milliseconds;
-    minutes = Math.floor(elapsedTime / 60).toLocaleString('en-US', {
+    minutes = Math.floor(elapsedTime / 60).toLocaleString("en-US", {
       minimumIntegerDigits: 2,
       useGrouping: false,
     }); //00 always two digits
-    seconds = Math.floor(elapsedTime - minutes * 60).toLocaleString('en-US', {
+    seconds = Math.floor(elapsedTime - minutes * 60).toLocaleString("en-US", {
       minimumIntegerDigits: 2,
       useGrouping: false,
     }); //00 always two digits
-    milliseconds = Math.floor((elapsedTime % 1) * 100).toLocaleString('en-US', {
+    milliseconds = Math.floor((elapsedTime % 1) * 100).toLocaleString("en-US", {
       minimumIntegerDigits: 2,
       useGrouping: false,
     }); //always two digits
@@ -108,7 +108,9 @@ class WinScreen extends React.Component {
                   value={this.state.name}
                   onChange={(e) => this.handleChange(e)}
                 />
-                <button onMouseOver={this.hoverSound} type="submit">Submit</button>
+                <button onMouseOver={this.hoverSound} type="submit">
+                  Submit
+                </button>
               </div>
             </form>
           ) : (

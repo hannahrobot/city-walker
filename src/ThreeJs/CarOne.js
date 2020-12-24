@@ -15,7 +15,7 @@ const CarOne = (props) => {
   const { scene: gltfMaria } = useLoader(GLTFLoader, maria);
 
   const [bradRef, api] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [5, 5, 5],
     position: [0, 0, 180],
     rotation: [0, (Math.PI * 90) / 180, 0],
@@ -33,7 +33,7 @@ const CarOne = (props) => {
   }));
   const [mariaRef, apiMaria] = useBox(() => ({
     mass: 1,
-    args: [5, 5, 5],
+    args: [6, 5, 6],
     position: [8, 0, 120],
     rotation: [0, (Math.PI * -25) / 180, 0],
   }));
@@ -41,7 +41,7 @@ const CarOne = (props) => {
   return (
     <>
       <mesh ref={bradRef}>
-        <primitive object={gltf} scale={[6, 6, 6]} />
+        <primitive object={gltf} scale={[8, 8, 8]} />
       </mesh>
       <mesh ref={redRef}>
         <primitive object={gltfRed} scale={[0.9, 0.9, 0.9]} />

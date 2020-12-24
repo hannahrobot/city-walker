@@ -9,76 +9,76 @@ const SailorMoon = (props) => {
   const gltf = useLoader(GLTFLoader, sailormoon);
 
   const [charRef, api] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [-8, 2, -50],
   }));
 
   const [charTwoRef, apiTwo] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
-    position: [-8, 2, -30],
+    position: [0, 2, -30],
     rotation: [0, (Math.PI * -65) / 180, 0],
   }));
 
   const [charThreeRef, apiThree] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [0, 2, -100],
     rotation: [0, (Math.PI * -45) / 180, 0],
   }));
 
   const [charFourRef, apiFour] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [5, 2, -120],
     rotation: [0, (Math.PI * -35) / 180, 0],
   }));
 
   const [charFiveRef, apiFive] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [-3, 2, -130],
     rotation: [0, (Math.PI * 35) / 180, 0],
   }));
 
   const [charSixRef, apiSix] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [-7, 2, -110],
     rotation: [0, (Math.PI * 50) / 180, 0],
   }));
 
   const [charSevenRef, apiSeven] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
-    position: [8, 2, -20],
+    position: [0, 2, -20],
     rotation: [0, (Math.PI * 50) / 180, 0],
   }));
 
   const [charEightRef, apiEight] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
-    position: [6, 2, -10],
+    position: [0, 2, -10],
     rotation: [0, (Math.PI * 80) / 180, 0],
   }));
 
   const [charNineRef, apiNine] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [8, 2, -50],
     rotation: [0, (Math.PI * -80) / 180, 0],
   }));
 
   const [charTenRef, apiTen] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [10, 2, -35],
     rotation: [0, (Math.PI * -80) / 180, 0],
   }));
 
   const [charElevenRef, apiEleven] = useBox(() => ({
-    mass: 1,
+    mass: 2,
     args: [3, 6, 3],
     position: [0, 2, -45],
     rotation: [0, (Math.PI * -80) / 180, 0],
