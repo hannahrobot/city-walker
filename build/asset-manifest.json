@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e697c95a.chunk.css",
+    "main.js": "/static/js/main.b2a89bf4.chunk.js",
+    "main.js.map": "/static/js/main.b2a89bf4.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e116b3a5.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e116b3a5.js.map",
+    "static/js/2.8d52e581.chunk.js": "/static/js/2.8d52e581.chunk.js",
+    "static/js/2.8d52e581.chunk.js.map": "/static/js/2.8d52e581.chunk.js.map",
+    "static/js/3.83433b14.chunk.js": "/static/js/3.83433b14.chunk.js",
+    "static/js/3.83433b14.chunk.js.map": "/static/js/3.83433b14.chunk.js.map",
+    "static/js/4.1400d4f1.chunk.js": "/static/js/4.1400d4f1.chunk.js",
+    "static/js/4.1400d4f1.chunk.js.map": "/static/js/4.1400d4f1.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.e697c95a.chunk.css.map": "/static/css/main.e697c95a.chunk.css.map",
+    "static/js/2.8d52e581.chunk.js.LICENSE.txt": "/static/js/2.8d52e581.chunk.js.LICENSE.txt",
+    "static/media/aquarium.9803b940.glb": "/static/media/aquarium.9803b940.glb",
+    "static/media/brad.37f02602.glb": "/static/media/brad.37f02602.glb",
+    "static/media/eaterplant.e11c480a.glb": "/static/media/eaterplant.e11c480a.glb",
+    "static/media/fan.e2430716.glb": "/static/media/fan.e2430716.glb",
+    "static/media/juliette.5cc4f262.glb": "/static/media/juliette.5cc4f262.glb",
+    "static/media/maria.56eb6240.glb": "/static/media/maria.56eb6240.glb",
+    "static/media/medplant.95182c89.glb": "/static/media/medplant.95182c89.glb",
+    "static/media/popstar.ca5a69ae.glb": "/static/media/popstar.ca5a69ae.glb",
+    "static/media/red.8d01e331.glb": "/static/media/red.8d01e331.glb",
+    "static/media/scene.364b28c1.glb": "/static/media/scene.364b28c1.glb",
+    "static/media/scene.4ff4455c.glb": "/static/media/scene.4ff4455c.glb",
+    "static/media/scene.71d76fee.glb": "/static/media/scene.71d76fee.glb",
+    "static/media/scene.b5528f99.glb": "/static/media/scene.b5528f99.glb",
+    "static/media/scene.eac163ed.glb": "/static/media/scene.eac163ed.glb",
+    "static/media/scene.f3c54604.glb": "/static/media/scene.f3c54604.glb",
+    "static/media/spy.5e9e5a9e.glb": "/static/media/spy.5e9e5a9e.glb"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e116b3a5.js",
+    "static/js/2.8d52e581.chunk.js",
+    "static/css/main.e697c95a.chunk.css",
+    "static/js/main.b2a89bf4.chunk.js"
+  ]
+}
