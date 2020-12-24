@@ -1,5 +1,6 @@
 import React from "react";
 import Game from "./ThreeJs/Game";
+import { loadModel, buildModel, collect } from "./tenserFlow";
 import Title from "./components/TitleScreen";
 import "firebase/firestore";
 import { connect } from "react-redux";
@@ -25,7 +26,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.askPermission()
+    loadModel().then(() => buildModel());
   }
 
   changePlaying() {
@@ -73,18 +74,10 @@ class App extends React.Component {
         />
       );
     } else {
-      // Switch case breaks compatibility with other browsers
-      // switch(permiss){
-      //   case 'granted':
-      //     return this.props.gameState.isPlaying ?  <Game changeWin={this.changeWin} changePlaying={this.changePlaying} /> : <Title changePlaying={this.changePlaying}/>
-      //   case 'denied':
-      //     return <NoPermission />
-      //   default:
-      // this.askPermission()
       return this.props.gameState.isPlaying ? (
         <Game changeWin={this.changeWin} changePlaying={this.changePlaying} />
       ) : (
-        <Title changePlaying={this.changePlaying} />
+        <Title changePlaying={this.changePlaying} collect={collect} />
       );
       // }
     }

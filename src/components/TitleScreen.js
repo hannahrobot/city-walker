@@ -34,6 +34,42 @@ class Title extends React.Component {
   render() {
     return (
       <div className="home">
+        <button
+          id="left"
+          onMouseDown={() => this.props.collect(0)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Left
+        </button>
+        <button
+          id="right"
+          onMouseDown={() => this.props.collect(1)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Right
+        </button>
+        <button
+          id="stop"
+          onMouseDown={() => this.props.collect(2)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Stop
+        </button>
+        <button
+          id="go"
+          onMouseDown={() => this.props.collect(3)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Go
+        </button>
+        <button
+          id="noise"
+          onMouseDown={() => this.props.collect(4)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Noise
+        </button>
+        <div id="console"></div>
         <div className="title">
           <h1>Midnight Train</h1>
         </div>

@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
-import { loadModel, startListening, stopListening } from "../tenserFlow";
+import { stopListening } from "../tenserFlow";
 import { Stars } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import Girl from "./Girl";
@@ -28,9 +28,7 @@ class Game extends React.Component {
     this.updatePosition = this.updatePosition.bind(this);
   }
 
-  componentDidMount() {
-    loadModel().then(() => startListening(this.voiceAction));
-  }
+  componentDidMount() {}
 
   voiceAction(command) {
     this.setState({
