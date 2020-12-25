@@ -34,10 +34,29 @@ class Instructions extends React.Component {
           </div>
           <div className="table-shell">
             <p>
+              How to train commands: While holding each button down (
+              <div>
+                <button>Left</button>
+                <button>Right</button>
+                <button>Stop</button>
+                <button>Go</button>
+              </div>
+              ) repeatedly state a one syllable word to represent the direction,
+              collecting around 800 examples for each (examples are seen
+              incrementing below buttons). When you are finished collecting
+              samples, click
+              <div>
+                <button>Train</button>
+              </div>
+              . When epoch reaches 130, click [Test] to test your voice samples.
+              If the sliders move accurately, click [Ride] and begin the
+              simulation.
+            </p>
+            <p>
               How to play: Navigate from your start position to the yellow end
               zone. Only clear, concise verbal commands will drive the car.
             </p>
-            <Table responsive>
+            {/* <Table responsive>
               <thead>
                 <tr>
                   <th>Commands</th>
@@ -51,7 +70,7 @@ class Instructions extends React.Component {
                 </tr>
                 <tr>
                   <td>Stop</td>
-                  <td>Cease movement</td>
+                  <td>Stop Movement</td>
                 </tr>
                 <tr>
                   <td>Left</td>
@@ -70,7 +89,7 @@ class Instructions extends React.Component {
                   <td>Camera Lock (show cursor)</td>
                 </tr>
               </tbody>
-            </Table>
+            </Table> */}
             <p>
               Please Note: Game rendering is based on device GPU. Best
               performance of game will be dependent on device ability to render

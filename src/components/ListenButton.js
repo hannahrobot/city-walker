@@ -21,7 +21,7 @@ class ListenButton extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="game-listen-button">
         <button
           id="listenButton"
           onClick={() => startListening(this.voiceAction)}
