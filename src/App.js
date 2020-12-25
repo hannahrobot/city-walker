@@ -1,6 +1,14 @@
 import React from "react";
 import Game from "./ThreeJs/Game";
-import { loadModel, buildModel, collect, train, listen } from "./tenserFlow";
+import {
+  loadModel,
+  buildModel,
+  startListening,
+  stopListening,
+  collect,
+  train,
+  listen,
+} from "./tenserFlow";
 import Title from "./components/TitleScreen";
 import "firebase/firestore";
 import { connect } from "react-redux";
@@ -14,25 +22,47 @@ import Stopwatch from "./ThreeJs/Stopwatch";
 import AudioPlayer from "./components/AudioPlayer";
 import Github from "./components/Github";
 import Instructions from "./components/Instructions";
+import ListenButton from "./components/ListenButton";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       granted: "",
+      action: "",
     };
     this.changePlaying = this.changePlaying.bind(this);
     this.changeWin = this.changeWin.bind(this);
+    this.voiceAction = this.voiceAction.bind(this);
   }
 
-  componentDidMount() {
-    // loadModel().then(() => buildModel());
-    // loadModel();
-  }
+  componentDidMount() {}
 
   changePlaying() {
+    // stopListening();
     const gameState = this.props.gameState;
+    console.log("making sure two functions are fitting inside one onclick");
+    console.log("gamestate before bool switch", gameState);
     this.props.gameStatePlaying(!gameState.isPlaying);
+    console.log("gamestate after bool switch", gameState);
+  }
+
+  async beginGameListening() {
+    await startListening(this.voiceAction);
+  }
+
+  async voiceAction(labelTensor) {
+    try {
+      if (labelTensor.data) {
+        const command = (await labelTensor.data())[0];
+        this.setState({
+          action: command,
+        });
+        console.log("voice command:", this.state.action);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   changeWin() {
@@ -76,7 +106,15 @@ class App extends React.Component {
       );
     } else {
       return this.props.gameState.isPlaying ? (
-        <Game changeWin={this.changeWin} changePlaying={this.changePlaying} />
+        <>
+          <Game
+            action={this.state.action}
+            changeWin={this.changeWin}
+            changePlaying={this.changePlaying}
+            voiceAction={this.voiceAction}
+          />
+          <ListenButton beginGameListening={this.beginGameListening} />
+        </>
       ) : (
         <Title
           changePlaying={this.changePlaying}

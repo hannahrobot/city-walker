@@ -57,14 +57,15 @@ export function normalize(x) {
 
 export async function train() {
   try {
-    // toggleButtons(false);
+    toggleButtons(false);
     const ys = tf.oneHot(
       examples.map((e) => e.label),
       3
     );
     const xsShape = [examples.length, ...INPUT_SHAPE];
+    console.log("xs shape", xsShape);
     const xs = tf.tensor(flatten(examples.map((e) => e.vals)), xsShape);
-    //this is the issue \/
+    console.log("xs", xs);
     console.log("model", model);
     await model.fit(xs, ys, {
       batchSize: 16,
@@ -78,7 +79,7 @@ export async function train() {
       },
     });
     tf.dispose([xs, ys]);
-    // toggleButtons(true);
+    toggleButtons(true);
   } catch (err) {
     console.log(err);
   }
@@ -89,6 +90,7 @@ export function buildModel() {
   model.add(
     tf.layers.depthwiseConv2d({
       depthMultiplier: 8,
+      // 3 actions
       kernelSize: [NUM_FRAMES, 3],
       activation: "relu",
       inputShape: INPUT_SHAPE,
@@ -160,6 +162,24 @@ export function listen() {
   );
 }
 
+export function startListening(callback) {
+  recognizer.listen(
+    async ({ spectrogram: { frameSize, data } }) => {
+      const vals = normalize(data.subarray(-frameSize * NUM_FRAMES));
+      const input = tf.tensor(vals, [1, ...INPUT_SHAPE]);
+      const probs = model.predict(input);
+      const predLabel = probs.argMax(1);
+      await callback(predLabel);
+      tf.dispose([input, probs, predLabel]);
+    },
+    {
+      overlapFactor: 0.999,
+      includeSpectrogram: true,
+      invokeCallbackOnNoiseAndUnknown: true,
+    }
+  );
+}
+
 ////////////////////////////////////
 
 // `listen()` takes two arguments:
@@ -168,25 +188,25 @@ export function listen() {
 //    - includeSpectrogram
 //    - probabilityThreshold
 //    - includeEmbedding
-export function startListening(callback) {
-  recognizer.listen(
-    ({ scores }) => {
-      // turn scores into a list of (score, word) pairs
-      scores = Array.from(scores).map((s, i) => ({ score: s, word: words[i] }));
-      // Find the most probable word
-      scores.sort((s1, s2) => s2.score - s1.score);
+// export function startListening(callback) {
+//   recognizer.listen(
+//     ({ scores }) => {
+//       // turn scores into a list of (score, word) pairs
+//       scores = Array.from(scores).map((s, i) => ({ score: s, word: words[i] }));
+//       // Find the most probable word
+//       scores.sort((s1, s2) => s2.score - s1.score);
 
-      let command = scores[0].word;
-      callback(command);
-      // - result.scores contains the probability scores that correspond to recognizer.wordLabels().
-      // - result.spectrogram contains the spectrogram of the recognized word.
-    },
-    {
-      includeSpectrogram: true,
-      probabilityThreshold: 0.9,
-    }
-  );
-}
+//       let command = scores[0].word;
+//       callback(command);
+//       // - result.scores contains the probability scores that correspond to recognizer.wordLabels().
+//       // - result.spectrogram contains the spectrogram of the recognized word.
+//     },
+//     {
+//       includeSpectrogram: true,
+//       probabilityThreshold: 0.9,
+//     }
+//   );
+// }
 
 export function stopListening() {
   recognizer.stopListening();
