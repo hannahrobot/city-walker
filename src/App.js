@@ -33,36 +33,21 @@ class App extends React.Component {
     };
     this.changePlaying = this.changePlaying.bind(this);
     this.changeWin = this.changeWin.bind(this);
-    this.voiceAction = this.voiceAction.bind(this);
+    this.changeVoiceCommandAction = this.changeVoiceCommandAction.bind(this);
   }
 
   componentDidMount() {}
 
   changePlaying() {
-    // stopListening();
     const gameState = this.props.gameState;
-    console.log("making sure two functions are fitting inside one onclick");
-    console.log("gamestate before bool switch", gameState);
     this.props.gameStatePlaying(!gameState.isPlaying);
-    console.log("gamestate after bool switch", gameState);
   }
 
-  async beginGameListening() {
-    await startListening(this.voiceAction);
-  }
-
-  async voiceAction(labelTensor) {
-    try {
-      if (labelTensor.data) {
-        const command = (await labelTensor.data())[0];
-        this.setState({
-          action: command,
-        });
-        console.log("voice command:", this.state.action);
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  changeVoiceCommandAction(command) {
+    this.setState({
+      action: command,
+    });
+    console.log("voice command:", this.state.action);
   }
 
   changeWin() {
@@ -111,9 +96,11 @@ class App extends React.Component {
             action={this.state.action}
             changeWin={this.changeWin}
             changePlaying={this.changePlaying}
-            voiceAction={this.voiceAction}
+            voiceAction={this.changeVoiceCommandAction}
           />
-          <ListenButton beginGameListening={this.beginGameListening} />
+          <ListenButton
+            changeVoiceCommandAction={this.changeVoiceCommandAction}
+          />
         </>
       ) : (
         <Title
