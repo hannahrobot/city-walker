@@ -1,14 +1,6 @@
 import React from "react";
 import Game from "./ThreeJs/Game";
-import {
-  loadModel,
-  buildModel,
-  startListening,
-  stopListening,
-  collect,
-  train,
-  listen,
-} from "./tenserFlow";
+import { collect, train, listen } from "./tenserFlow";
 import Title from "./components/TitleScreen";
 import "firebase/firestore";
 import { connect } from "react-redux";

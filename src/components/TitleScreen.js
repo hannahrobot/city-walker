@@ -48,26 +48,26 @@ class Title extends React.Component {
         >
           Right
         </button>
-        {/* <button
-          id="stop"
-          onMouseDown={() => this.props.collect(2)}
-          onMouseUp={() => this.props.collect(null)}
-        >
-          Stop
-        </button>
-        <button
-          id="go"
-          onMouseDown={() => this.props.collect(3)}
-          onMouseUp={() => this.props.collect(null)}
-        >
-          Go
-        </button> */}
         <button
           id="noise"
           onMouseDown={() => this.props.collect(2)}
           onMouseUp={() => this.props.collect(null)}
         >
           Noise
+        </button>
+        <button
+          id="stop"
+          onMouseDown={() => this.props.collect(3)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Stop
+        </button>
+        <button
+          id="go"
+          onMouseDown={() => this.props.collect(4)}
+          onMouseUp={() => this.props.collect(null)}
+        >
+          Go
         </button>
         <button id="train" onClick={() => this.props.train()}>
           Train
@@ -76,6 +76,7 @@ class Title extends React.Component {
           Listen
         </button>
         <input type="range" id="output" min={0} max={10} step={0.1}></input>
+        <input type="range" id="output2" min={0} max={10} step={0.1}></input>
         <div id="console"></div>
         <div className="title">
           <h1>Midnight Train</h1>

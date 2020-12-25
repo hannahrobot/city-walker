@@ -2,9 +2,9 @@ import * as tf from "@tensorflow/tfjs";
 import * as speechCommands from "@tensorflow-models/speech-commands";
 
 let recognizer;
-let words;
 // One frame is ~23ms of audio.
-const NUM_FRAMES = 3;
+// started at 3, multiplied by 13
+const NUM_FRAMES = 39;
 let examples = [];
 const INPUT_SHAPE = [NUM_FRAMES, 232, 1];
 let model;
@@ -58,9 +58,10 @@ export function normalize(x) {
 export async function train() {
   try {
     toggleButtons(false);
+    // acknowleges 5 actions on model
     const ys = tf.oneHot(
       examples.map((e) => e.label),
-      3
+      5
     );
     const xsShape = [examples.length, ...INPUT_SHAPE];
     console.log("xs shape", xsShape);
@@ -68,8 +69,12 @@ export async function train() {
     console.log("xs", xs);
     console.log("model", model);
     await model.fit(xs, ys, {
-      batchSize: 16,
-      epochs: 10,
+      // batchSize: 16,
+      //40
+      batchSize: 208,
+      // epochs: 10,
+      //25
+      epochs: 130,
       callbacks: {
         onEpochEnd: (epoch, logs) => {
           document.querySelector("#console").textContent = `Accuracy: ${(
@@ -90,7 +95,6 @@ export function buildModel() {
   model.add(
     tf.layers.depthwiseConv2d({
       depthMultiplier: 8,
-      // 3 actions
       kernelSize: [NUM_FRAMES, 3],
       activation: "relu",
       inputShape: INPUT_SHAPE,
@@ -98,7 +102,8 @@ export function buildModel() {
   );
   model.add(tf.layers.maxPooling2d({ poolSize: [1, 2], strides: [2, 2] }));
   model.add(tf.layers.flatten());
-  model.add(tf.layers.dense({ units: 3, activation: "softmax" }));
+  // 5 actions
+  model.add(tf.layers.dense({ units: 5, activation: "softmax" }));
   const optimizer = tf.train.adam(0.01);
   model.compile({
     optimizer,
@@ -121,14 +126,26 @@ export function flatten(tensors) {
 async function moveSlider(labelTensor) {
   try {
     const label = (await labelTensor.data())[0];
-    document.getElementById("console").textContent = label;
-    if (label === 2) {
-      return;
-    }
-    let delta = 0.1;
     const prevValue = +document.getElementById("output").value;
-    document.getElementById("output").value =
-      prevValue + (label === 0 ? -delta : delta);
+    const prevValue2 = +document.getElementById("output2").value;
+    document.getElementById("console").textContent = label;
+    let delta = 0.1;
+    switch (label) {
+      case 0:
+        document.getElementById("output").value = prevValue - delta;
+        break;
+      case 1:
+        document.getElementById("output").value = prevValue + delta;
+        break;
+      case 3:
+        document.getElementById("output2").value = prevValue2 - delta;
+        break;
+      case 4:
+        document.getElementById("output2").value = prevValue2 + delta;
+        break;
+      default:
+        break;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -157,7 +174,7 @@ export function listen() {
     {
       overlapFactor: 0.999,
       includeSpectrogram: true,
-      invokeCallbackOnNoiseAndUnknown: true,
+      // invokeCallbackOnNoiseAndUnknown: true,
     }
   );
 }
@@ -175,7 +192,8 @@ export function startListening(callback) {
     {
       overlapFactor: 0.999,
       includeSpectrogram: true,
-      invokeCallbackOnNoiseAndUnknown: true,
+      // probabilityThreshold: 0.9, <--- try adding this
+      // invokeCallbackOnNoiseAndUnknown: true, <----- changed
     }
   );
 }

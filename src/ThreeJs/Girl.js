@@ -54,20 +54,22 @@ const Girl = (props) => {
           props.setAction("");
         }
         break;
-      // case "go":
-      //   baseVel = 20;
-      //   if (acc === 0) {
-      //     acc += 5;
-      //   }
-      //   props.setAction("");
-      //   break;
-      // //"back off"
-      // case "stop":
-      //   xVel = 0;
-      //   baseVel = 0;
-      //   acc = 0;
-      //   props.setAction("");
-      //   break;
+      case 4:
+        baseVel = 20;
+        if (acc === 0) {
+          acc += 5;
+        }
+        props.setAction("");
+        break;
+      case 3:
+        xVel = 0;
+        baseVel = 0;
+        acc = 0;
+        props.setAction("");
+        break;
+      case 2:
+        props.setAction("");
+        break;
       default:
         break;
     }
