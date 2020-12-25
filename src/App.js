@@ -1,6 +1,6 @@
 import React from "react";
 import Game from "./ThreeJs/Game";
-import { loadModel, buildModel, collect } from "./tenserFlow";
+import { loadModel, buildModel, collect, train, listen } from "./tenserFlow";
 import Title from "./components/TitleScreen";
 import "firebase/firestore";
 import { connect } from "react-redux";
@@ -26,7 +26,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    loadModel().then(() => buildModel());
+    // loadModel().then(() => buildModel());
+    // loadModel();
   }
 
   changePlaying() {
@@ -77,9 +78,13 @@ class App extends React.Component {
       return this.props.gameState.isPlaying ? (
         <Game changeWin={this.changeWin} changePlaying={this.changePlaying} />
       ) : (
-        <Title changePlaying={this.changePlaying} collect={collect} />
+        <Title
+          changePlaying={this.changePlaying}
+          collect={collect}
+          train={train}
+          listen={listen}
+        />
       );
-      // }
     }
   }
 
