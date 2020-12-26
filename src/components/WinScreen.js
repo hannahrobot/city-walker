@@ -1,12 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addRecordToDb } from "../store/leaderboard";
-import {
-  getGameState,
-  resetGameState,
-  gameStatePlaying,
-  gameStateWin,
-} from "../store/gameState";
+import { resetGameState } from "../store/gameState";
 import Leaderboard from "./leaderboard";
 
 class WinScreen extends React.Component {
@@ -123,6 +118,7 @@ class WinScreen extends React.Component {
         </div>
         <div id="button-row">
           <button
+            className="all-buttons"
             id="leaderboard-button"
             onMouseOver={this.hoverSound}
             onClick={this.toggleLeaderboard}
@@ -136,6 +132,7 @@ class WinScreen extends React.Component {
             />
           )}
           <button
+            className="all-buttons"
             id="playButton"
             onMouseOver={this.hoverSound}
             onClick={this.resetGame}

@@ -99,19 +99,22 @@ class Instructions extends React.Component {
                 <tr>
                   <td>Noise</td>
                   <td>
-                    Hold down to collect background noise until collected
-                    examples reaches around 800
+                    Hold down to collect background noise until examples reaches
+                    around 800
                   </td>
                 </tr>
                 <tr>
                   <td>Train</td>
-                  <td>Click to train your player, completion at 130 Epoch</td>
+                  <td>
+                    Click to auto-train your player. Training is complete when
+                    Epoch reaches 130
+                  </td>
                 </tr>
                 <tr>
                   <td>Test</td>
                   <td>
-                    Clickable when Train is complete, observe sliders to test
-                    command responsiveness
+                    Clickable when training is complete. Observe sliders to test
+                    responsiveness to spoken commands
                   </td>
                 </tr>
                 <tr>
@@ -120,10 +123,7 @@ class Instructions extends React.Component {
                 </tr>
                 <tr>
                   <td>Listen</td>
-                  <td>
-                    Begin listening for commands (Click once your player is
-                    loaded on the screen)
-                  </td>
+                  <td>Begin listening for commands</td>
                 </tr>
                 <tr>
                   <td>Screen click</td>

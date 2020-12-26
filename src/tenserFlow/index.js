@@ -39,7 +39,6 @@ export function collect(label) {
       document.querySelector(
         "#console"
       ).textContent = `${examples.length} examples collected`;
-      console.log("examples", examples);
     },
     {
       overlapFactor: 0.999,
@@ -64,10 +63,7 @@ export async function train() {
       5
     );
     const xsShape = [examples.length, ...INPUT_SHAPE];
-    console.log("xs shape", xsShape);
     const xs = tf.tensor(flatten(examples.map((e) => e.vals)), xsShape);
-    console.log("xs", xs);
-    console.log("model", model);
     await model.fit(xs, ys, {
       // batchSize: 16,
       //40
@@ -150,7 +146,7 @@ async function moveSlider(labelTensor) {
     console.log(err);
   }
 }
-
+//training listening function
 export function listen() {
   if (recognizer.isListening()) {
     recognizer.stopListening();
@@ -174,11 +170,12 @@ export function listen() {
     {
       overlapFactor: 0.999,
       includeSpectrogram: true,
+      probabilityThreshold: 0.9,
       // invokeCallbackOnNoiseAndUnknown: true,
     }
   );
 }
-
+// gameplay listening function
 export function startListening(callback) {
   recognizer.listen(
     async ({ spectrogram: { frameSize, data } }) => {
@@ -192,6 +189,7 @@ export function startListening(callback) {
     {
       overlapFactor: 0.999,
       includeSpectrogram: true,
+      probabilityThreshold: 0.9,
       // probabilityThreshold: 0.9, <--- try adding this
       // invokeCallbackOnNoiseAndUnknown: true, <----- changed
     }

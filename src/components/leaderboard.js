@@ -61,7 +61,7 @@ class Leaderboard extends React.Component {
               </thead>
               <tbody>
                 {leaderboard.map((record, idx) => (
-                  <tr key={record.idx}>
+                  <tr key={idx}>
                     <td></td>
                     <td>{record.name}</td>
                     <td>
