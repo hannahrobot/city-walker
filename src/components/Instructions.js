@@ -105,7 +105,7 @@ class Instructions extends React.Component {
                 </tr>
                 <tr>
                   <td>Train</td>
-                  <td>Click and wait for completion to train your player</td>
+                  <td>Click to train your player, completion at 130 Epoch</td>
                 </tr>
                 <tr>
                   <td>Test</td>
