@@ -14,8 +14,8 @@ Midnight Train is developed with Node.JS, three.js wrapper, react-three-fiber fo
 
 ## How to Play
 
-- Train your player commands
-- Use your custom commands to navigate to the end of the train
+- Follow the in app instructions to train your player commands
+- Use your custom commands to navigate your player to the end of the train
 
 ## Installation
 

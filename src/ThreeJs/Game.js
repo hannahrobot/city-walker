@@ -7,7 +7,6 @@ import Girl from "./Girl";
 import CarOne from "./CarOne";
 import SailorMoon from "./SailorMoon";
 import CarThree from "./CarThree";
-import PokerTable from "./PokerTable";
 import Box from "./Box";
 import Train from "./Train";
 import FloorPlane from "./FloorPlane";
@@ -72,9 +71,8 @@ class Game extends React.Component {
               <CarOne />
               <CarThree />
               <SailorMoon />
-              <PokerTable />
             </Suspense>
-            <Train rotation={[0, 0, 0]} position={[0, 0, 140]} />
+            <Train rotation={[0, Math.PI / 2, 0]} position={[-11, 15, 160]} />
             <FrontPlane position={[0, 0, -800]} />
             <SidePlane
               rotation={[0, -Math.PI / 2, 0]}

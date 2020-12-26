@@ -15,8 +15,8 @@ class EndZone extends React.Component {
 
   render() {
     return (
-      <mesh ref={this.zoneRef} position={[0, 0, -650]}>
-        <boxBufferGeometry attach="geometry" args={[20, 100, 20]} />
+      <mesh ref={this.zoneRef} position={[0, 0, -480]}>
+        <boxBufferGeometry attach="geometry" args={[30, 50, 20]} />
         <meshStandardMaterial
           wireframe={false}
           attach="material"

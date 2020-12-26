@@ -123,6 +123,7 @@ class WinScreen extends React.Component {
         </div>
         <div id="button-row">
           <button
+            className="all-buttons"
             id="leaderboard-button"
             onMouseOver={this.hoverSound}
             onClick={this.toggleLeaderboard}
@@ -136,6 +137,7 @@ class WinScreen extends React.Component {
             />
           )}
           <button
+            className="all-buttons"
             id="playButton"
             onMouseOver={this.hoverSound}
             onClick={this.resetGame}
