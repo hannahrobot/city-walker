@@ -33,7 +33,7 @@ class Instructions extends React.Component {
             <h1>Riding simulation requires use of device microphone</h1>
           </div>
           <div className="table-shell">
-            <p>
+            {/* <p>
               How to train commands: While holding each button down (
               <div>
                 <button>Left</button>
@@ -42,7 +42,7 @@ class Instructions extends React.Component {
                 <button>Go</button>
               </div>
               ) repeatedly state a one syllable word to represent the direction,
-              collecting around 800 examples for each (examples are seen
+              collecting around around 800 examples for each (examples are seen
               incrementing below buttons). Additionally, press the
               <div>
                 <button>Noise</button>
@@ -59,30 +59,71 @@ class Instructions extends React.Component {
             <p>
               How to play: Navigate from your start position to the yellow end
               zone. Only clear, concise verbal commands will drive the car.
-            </p>
-            {/* <Table responsive>
+            </p> */}
+            <Table responsive>
               <thead>
                 <tr>
-                  <th>Commands</th>
-                  <th>Description</th>
+                  <th>Buttons</th>
+                  <th>Instructions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Go</td>
-                  <td>Move foreward</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
                 </tr>
                 <tr>
                   <td>Stop</td>
-                  <td>Stop Movement</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
                 </tr>
                 <tr>
                   <td>Left</td>
-                  <td>Move left</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
                 </tr>
                 <tr>
                   <td>Right</td>
-                  <td>Move right</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
+                </tr>
+                <tr>
+                  <td>Noise</td>
+                  <td>
+                    Hold down to collect background noise until collected
+                    examples reaches around 800
+                  </td>
+                </tr>
+                <tr>
+                  <td>Train</td>
+                  <td>Click and wait for completion to train your player</td>
+                </tr>
+                <tr>
+                  <td>Test</td>
+                  <td>
+                    Clickable when Train is complete, observe sliders to test
+                    command responsiveness
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ride</td>
+                  <td>Begin game</td>
+                </tr>
+                <tr>
+                  <td>Listen</td>
+                  <td>
+                    Begin listening for commands (Click once your player is
+                    loaded on the screen)
+                  </td>
                 </tr>
                 <tr>
                   <td>Screen click</td>
@@ -93,7 +134,7 @@ class Instructions extends React.Component {
                   <td>Camera Lock (show cursor)</td>
                 </tr>
               </tbody>
-            </Table> */}
+            </Table>
             <p>
               Please Note: Game rendering is based on device GPU. Best
               performance of game will be dependent on device ability to render
