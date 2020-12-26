@@ -189,7 +189,7 @@ canvas {
   display: flex;
 }
 
-.MLButton {
+.all-buttons {
   margin: 10px 10px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -210,62 +210,23 @@ canvas {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-.MLButton:hover {
+.all-buttons:hover {
   color: black;
   border: 1px solid white;
   background: linear-gradient(#ffffff, #a1a1a1);
   font-weight: 400;
 }
 
-#playButton {
-  margin: 10px 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: white;
-  background: linear-gradient(#1f1f1f, #000000);
-  font-size: 34px;
-  border: 1px solid;
-  background-color: transparent;
-  text-decoration: uppercase;
-  text-align: center;
-  padding: 14px 18px;
-  transform: skew(-10deg);
-  box-shadow: 10px 10px white;
-  font-weight: 200;
-  animation-name: hover;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-#playButton:hover {
-  color: black;
-  border: 1px solid white;
-  background: linear-gradient(#ffffff, #a1a1a1);
-  font-weight: 400;
-}
-
-#listenButton {
-  margin: 10px 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: white;
-  background: linear-gradient(#1f1f1f, #000000);
-  font-size: 34px;
-  border: 1px solid;
-  background-color: transparent;
-  text-decoration: uppercase;
-  text-align: center;
-  padding: 14px 18px;
-  transform: skew(-10deg);
-  box-shadow: 10px 10px white;
-  font-weight: 200;
-  animation-name: hover;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+#game-listen-button {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  justify-content: space-between;
+  align-items: bottom;
+  position: fixed;
+  z-index: 10;
+  top: 40%;
+  left: 40%;
 }
 
 @keyframes hover {

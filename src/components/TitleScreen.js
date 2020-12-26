@@ -43,7 +43,7 @@ class Title extends React.Component {
         <div id="ml-button-row">
           <button
             id="left"
-            className="MLButton"
+            className="all-buttons"
             onMouseDown={() => this.props.collect(0)}
             onMouseUp={() => this.props.collect(null)}
           >
@@ -51,7 +51,7 @@ class Title extends React.Component {
           </button>
           <button
             id="right"
-            className="MLButton"
+            className="all-buttons"
             onMouseDown={() => this.props.collect(1)}
             onMouseUp={() => this.props.collect(null)}
           >
@@ -59,7 +59,7 @@ class Title extends React.Component {
           </button>
           <button
             id="stop"
-            className="MLButton"
+            className="all-buttons"
             onMouseDown={() => this.props.collect(3)}
             onMouseUp={() => this.props.collect(null)}
           >
@@ -67,7 +67,7 @@ class Title extends React.Component {
           </button>
           <button
             id="go"
-            className="MLButton"
+            className="all-buttons"
             onMouseDown={() => this.props.collect(4)}
             onMouseUp={() => this.props.collect(null)}
           >
@@ -75,7 +75,7 @@ class Title extends React.Component {
           </button>
           <button
             id="noise"
-            className="MLButton"
+            className="all-buttons"
             onMouseDown={() => this.props.collect(2)}
             onMouseUp={() => this.props.collect(null)}
           >
@@ -83,14 +83,14 @@ class Title extends React.Component {
           </button>
           <button
             id="train"
-            className="MLButton"
+            className="all-buttons"
             onClick={() => this.props.train()}
           >
             Train
           </button>
           <button
             id="listen"
-            className="MLButton"
+            className="all-buttons"
             onClick={() => this.props.listen()}
           >
             Test
@@ -118,6 +118,7 @@ class Title extends React.Component {
         <div id="button-row">
           <button
             id="leaderboard-button"
+            className="all-buttons"
             onMouseOver={this.hoverSound}
             onClick={this.toggleLeaderboard}
           >
@@ -131,6 +132,7 @@ class Title extends React.Component {
           )}
           <button
             id="playButton"
+            className="all-buttons"
             onMouseOver={() => this.hoverSound()}
             onClick={() => (this.props.changePlaying(), this.selectSound())}
           >

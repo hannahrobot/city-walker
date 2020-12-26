@@ -19,12 +19,19 @@ class ListenButton extends React.Component {
     }
   }
 
+  handleClick() {
+    startListening(this.voiceAction);
+    const button = document.getElementById("listenButton");
+    button.remove();
+  }
+
   render() {
     return (
       <div id="game-listen-button">
         <button
           id="listenButton"
-          onClick={() => startListening(this.voiceAction)}
+          className="all-buttons"
+          onClick={() => this.handleClick()}
         >
           Start Listening
         </button>

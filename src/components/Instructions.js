@@ -43,8 +43,12 @@ class Instructions extends React.Component {
               </div>
               ) repeatedly state a one syllable word to represent the direction,
               collecting around 800 examples for each (examples are seen
-              incrementing below buttons). When you are finished collecting
-              samples, click
+              incrementing below buttons). Additionally, press the
+              <div>
+                <button>Noise</button>
+              </div>
+              button whichout any audio imput so that it can measure your
+              background noise. When you are finished collecting samples, click
               <div>
                 <button>Train</button>
               </div>
