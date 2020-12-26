@@ -6,7 +6,7 @@
     "@react-three/cannon": "^0.5.3",
     "@react-three/drei": "^2.2.10",
     "@tensorflow-models/speech-commands": "^0.4.2",
-    "@tensorflow/tfjs": "^2.7.0",
+    "@tensorflow/tfjs": "^1.7.4",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",

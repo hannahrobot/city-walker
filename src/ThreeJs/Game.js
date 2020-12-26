@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
-import { loadModel, startListening, stopListening } from "../tenserFlow";
+import { stopListening } from "../tenserFlow";
 import { Stars } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import Girl from "./Girl";
@@ -21,25 +21,13 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      action: "",
       endPosition: {},
     };
-    this.voiceAction = this.voiceAction.bind(this);
     this.updatePosition = this.updatePosition.bind(this);
   }
 
-  componentDidMount() {
-    loadModel().then(() => startListening(this.voiceAction));
-  }
+  componentDidMount() {}
 
-  voiceAction(command) {
-    this.setState({
-      action: command,
-    });
-    console.log("voice command:", this.state.action);
-  }
-  // function to pass EndZone Position
-  // up to parent as props
   updatePosition(endPosition) {
     this.setState({
       endPosition: endPosition,
@@ -73,11 +61,11 @@ class Game extends React.Component {
             <EndZone store={store} />
             <Suspense fallback={<Box />}>
               <Girl
-                action={this.state.action}
+                action={this.props.action}
                 girlPosition={[0, 0, 200]}
                 stopListening={stopListening}
                 changeWin={this.props.changeWin}
-                setAction={this.voiceAction}
+                setAction={this.props.voiceAction}
                 changePlaying={this.props.changePlaying}
                 store={store}
               />

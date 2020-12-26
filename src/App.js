@@ -1,5 +1,6 @@
 import React from "react";
 import Game from "./ThreeJs/Game";
+import { collect, train, listen } from "./tenserFlow";
 import Title from "./components/TitleScreen";
 import "firebase/firestore";
 import { connect } from "react-redux";
@@ -13,24 +14,32 @@ import Stopwatch from "./ThreeJs/Stopwatch";
 import AudioPlayer from "./components/AudioPlayer";
 import Github from "./components/Github";
 import Instructions from "./components/Instructions";
+import ListenButton from "./components/ListenButton";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       granted: "",
+      action: "",
     };
     this.changePlaying = this.changePlaying.bind(this);
     this.changeWin = this.changeWin.bind(this);
+    this.changeVoiceCommandAction = this.changeVoiceCommandAction.bind(this);
   }
 
-  componentDidMount() {
-    // this.askPermission()
-  }
+  componentDidMount() {}
 
   changePlaying() {
     const gameState = this.props.gameState;
     this.props.gameStatePlaying(!gameState.isPlaying);
+  }
+
+  changeVoiceCommandAction(command) {
+    this.setState({
+      action: command,
+    });
+    console.log("voice command:", this.state.action);
   }
 
   changeWin() {
@@ -73,20 +82,26 @@ class App extends React.Component {
         />
       );
     } else {
-      // Switch case breaks compatibility with other browsers
-      // switch(permiss){
-      //   case 'granted':
-      //     return this.props.gameState.isPlaying ?  <Game changeWin={this.changeWin} changePlaying={this.changePlaying} /> : <Title changePlaying={this.changePlaying}/>
-      //   case 'denied':
-      //     return <NoPermission />
-      //   default:
-      // this.askPermission()
       return this.props.gameState.isPlaying ? (
-        <Game changeWin={this.changeWin} changePlaying={this.changePlaying} />
+        <>
+          <Game
+            action={this.state.action}
+            changeWin={this.changeWin}
+            changePlaying={this.changePlaying}
+            voiceAction={this.changeVoiceCommandAction}
+          />
+          <ListenButton
+            changeVoiceCommandAction={this.changeVoiceCommandAction}
+          />
+        </>
       ) : (
-        <Title changePlaying={this.changePlaying} />
+        <Title
+          changePlaying={this.changePlaying}
+          collect={collect}
+          train={train}
+          listen={listen}
+        />
       );
-      // }
     }
   }
 

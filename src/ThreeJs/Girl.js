@@ -42,36 +42,32 @@ const Girl = (props) => {
 
     api.rotation.set(0, (Math.PI * -90) / 180, 0);
     switch (props.action) {
-      //"on your right"
-      //"watch out"
-      case "right":
+      case 1:
         xVel += 10;
         if (xVel >= 10) {
           props.setAction("");
         }
         break;
-      //"on your left"
-      //"move!"
-      case "left":
+      case 0:
         xVel -= 10;
         if (xVel <= -10) {
           props.setAction("");
         }
         break;
-      //"I have to get to the end of the train"
-      //"lets go"
-      case "go":
+      case 4:
         baseVel = 20;
         if (acc === 0) {
           acc += 5;
         }
         props.setAction("");
         break;
-      //"back off"
-      case "stop":
+      case 3:
         xVel = 0;
         baseVel = 0;
         acc = 0;
+        props.setAction("");
+        break;
+      case 2:
         props.setAction("");
         break;
       default:

@@ -33,33 +33,97 @@ class Instructions extends React.Component {
             <h1>Riding simulation requires use of device microphone</h1>
           </div>
           <div className="table-shell">
+            {/* <p>
+              How to train commands: While holding each button down (
+              <div>
+                <button>Left</button>
+                <button>Right</button>
+                <button>Stop</button>
+                <button>Go</button>
+              </div>
+              ) repeatedly state a one syllable word to represent the direction,
+              collecting around around 800 examples for each (examples are seen
+              incrementing below buttons). Additionally, press the
+              <div>
+                <button>Noise</button>
+              </div>
+              button whichout any audio imput so that it can measure your
+              background noise. When you are finished collecting samples, click
+              <div>
+                <button>Train</button>
+              </div>
+              . When epoch reaches 130, click [Test] to test your voice samples.
+              If the sliders move accurately, click [Ride] and begin the
+              simulation.
+            </p>
             <p>
               How to play: Navigate from your start position to the yellow end
               zone. Only clear, concise verbal commands will drive the car.
-            </p>
+            </p> */}
             <Table responsive>
               <thead>
                 <tr>
-                  <th>Commands</th>
-                  <th>Description</th>
+                  <th>Buttons</th>
+                  <th>Instructions</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Go</td>
-                  <td>Move foreward</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
                 </tr>
                 <tr>
                   <td>Stop</td>
-                  <td>Cease movement</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
                 </tr>
                 <tr>
                   <td>Left</td>
-                  <td>Move left</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
                 </tr>
                 <tr>
                   <td>Right</td>
-                  <td>Move right</td>
+                  <td>
+                    Hold down and repeatedly state one syllable word until
+                    collected examples reaches around 800
+                  </td>
+                </tr>
+                <tr>
+                  <td>Noise</td>
+                  <td>
+                    Hold down to collect background noise until collected
+                    examples reaches around 800
+                  </td>
+                </tr>
+                <tr>
+                  <td>Train</td>
+                  <td>Click and wait for completion to train your player</td>
+                </tr>
+                <tr>
+                  <td>Test</td>
+                  <td>
+                    Clickable when Train is complete, observe sliders to test
+                    command responsiveness
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ride</td>
+                  <td>Begin game</td>
+                </tr>
+                <tr>
+                  <td>Listen</td>
+                  <td>
+                    Begin listening for commands (Click once your player is
+                    loaded on the screen)
+                  </td>
                 </tr>
                 <tr>
                   <td>Screen click</td>
