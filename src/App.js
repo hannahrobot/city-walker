@@ -14,7 +14,6 @@ import Stopwatch from "./ThreeJs/Stopwatch";
 import AudioPlayer from "./components/AudioPlayer";
 import Github from "./components/Github";
 import Instructions from "./components/Instructions";
-import ListenButton from "./components/ListenButton";
 
 class App extends React.Component {
   constructor() {
@@ -25,7 +24,6 @@ class App extends React.Component {
     };
     this.changePlaying = this.changePlaying.bind(this);
     this.changeWin = this.changeWin.bind(this);
-    this.changeVoiceCommandAction = this.changeVoiceCommandAction.bind(this);
   }
 
   componentDidMount() {}
@@ -33,13 +31,6 @@ class App extends React.Component {
   changePlaying() {
     const gameState = this.props.gameState;
     this.props.gameStatePlaying(!gameState.isPlaying);
-  }
-
-  changeVoiceCommandAction(command) {
-    this.setState({
-      action: command,
-    });
-    console.log("voice command:", this.state.action);
   }
 
   changeWin() {
@@ -89,9 +80,6 @@ class App extends React.Component {
             changeWin={this.changeWin}
             changePlaying={this.changePlaying}
             voiceAction={this.changeVoiceCommandAction}
-          />
-          <ListenButton
-            changeVoiceCommandAction={this.changeVoiceCommandAction}
           />
         </>
       ) : (

@@ -7,7 +7,7 @@ import { useBox } from "@react-three/cannon";
 const CarThree = (props) => {
   const gltfjuliette = useLoader(GLTFLoader, goth);
 
-  const [julietteRef, apijuliette] = useBox(() => ({
+  const [julietteRef] = useBox(() => ({
     mass: 1,
     args: [7, 5, 7],
     position: [4, 0, -340],
@@ -19,7 +19,7 @@ const CarThree = (props) => {
       <mesh ref={julietteRef}>
         <primitive
           object={gltfjuliette.scene}
-          scale={[0.3, 0.3, 0.3]}
+          scale={[0.25, 0.25, 0.25]}
           position={[0, -3, 0]}
         />
       </mesh>

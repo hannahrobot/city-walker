@@ -9,7 +9,7 @@ const Train = (props) => {
   //trainRef: train's property in scene (read only)
   //api: train's physics object (methods to set/subscribe)
   const { scene } = useLoader(GLTFLoader, train);
-  const [trainRef, api] = useBox(() => ({
+  const [trainRef] = useBox(() => ({
     type: "Kinematic",
     args: [4.7, 1.1, 2],
     position: props.position,

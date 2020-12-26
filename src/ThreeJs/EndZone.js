@@ -1,5 +1,4 @@
 import React from "react";
-// import { useBox } from '@react-three/cannon';
 import { connect } from "react-redux";
 import { getPosition } from "../store/position";
 
@@ -15,7 +14,7 @@ class EndZone extends React.Component {
 
   render() {
     return (
-      <mesh ref={this.zoneRef} position={[0, 0, -480]}>
+      <mesh ref={this.zoneRef} position={[-2, 0, -450]}>
         <boxBufferGeometry attach="geometry" args={[30, 50, 20]} />
         <meshStandardMaterial
           wireframe={false}

@@ -1,25 +1,23 @@
-
 /**
  * ACTION TYPES
  */
-const GET_POSITION = 'GET_POSITION'
-const UPDATE_POSITION = 'UPDATE_POSITION'
+const GET_POSITION = "GET_POSITION";
 
 /**
  * INITIAL STATE
  */
-const INITIAL_STATE = {}
+const INITIAL_STATE = {};
 
 /**
  * ACTION CREATORS
  */
 
 export const getPosition = (position) => ({
-   type: GET_POSITION,
-   position
- })
+  type: GET_POSITION,
+  position,
+});
 
- /**
+/**
  * REDUCER
  */
 

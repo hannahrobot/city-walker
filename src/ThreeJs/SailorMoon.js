@@ -7,34 +7,34 @@ import { useBox } from "@react-three/cannon";
 const SailorMoon = (props) => {
   const gltf = useLoader(GLTFLoader, sailormoon);
 
-  const [charRef, api] = useBox(() => ({
+  const [charRef] = useBox(() => ({
     mass: 2,
     args: [3, 6, 3],
     position: [-8, 2, -50],
   }));
 
-  const [charTwoRef, apiTwo] = useBox(() => ({
+  const [charTwoRef] = useBox(() => ({
     mass: 2,
     args: [3, 6, 3],
     position: [0, 2, -30],
     rotation: [0, (Math.PI * -65) / 180, 0],
   }));
 
-  const [charNineRef, apiNine] = useBox(() => ({
+  const [charNineRef] = useBox(() => ({
     mass: 2,
     args: [3, 6, 3],
     position: [8, 2, -50],
     rotation: [0, (Math.PI * -80) / 180, 0],
   }));
 
-  const [charTenRef, apiTen] = useBox(() => ({
+  const [charTenRef] = useBox(() => ({
     mass: 2,
     args: [3, 6, 3],
     position: [10, 2, -35],
     rotation: [0, (Math.PI * -80) / 180, 0],
   }));
 
-  const [charElevenRef, apiEleven] = useBox(() => ({
+  const [charElevenRef] = useBox(() => ({
     mass: 2,
     args: [3, 6, 3],
     position: [0, 2, -45],

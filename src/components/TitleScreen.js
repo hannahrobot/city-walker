@@ -39,6 +39,7 @@ class Title extends React.Component {
         </div>
         <div className="message">
           <h2>A customized voice-command driven 3D interactive simulation</h2>
+          <p>Train your player commands</p>
         </div>
         <div id="ml-button-row">
           <button

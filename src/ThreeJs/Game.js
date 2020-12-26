@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "react-three-fiber";
-import { stopListening } from "../tenserFlow";
+import { stopListening, startListening } from "../tenserFlow";
 import { Stars } from "@react-three/drei";
 import { Physics } from "@react-three/cannon";
 import Girl from "./Girl";
@@ -21,11 +21,34 @@ class Game extends React.Component {
     super(props);
     this.state = {
       endPosition: {},
+      action: "",
     };
     this.updatePosition = this.updatePosition.bind(this);
+    this.voiceAction = this.voiceAction.bind(this);
+    this.changeVoiceCommandAction = this.changeVoiceCommandAction.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    startListening(this.voiceAction);
+  }
+
+  async voiceAction(labelTensor) {
+    try {
+      if (labelTensor.data) {
+        const command = (await labelTensor.data())[0];
+        this.changeVoiceCommandAction(command);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  changeVoiceCommandAction(command) {
+    this.setState({
+      action: command,
+    });
+    console.log("voice command:", this.state.action);
+  }
 
   updatePosition(endPosition) {
     this.setState({
@@ -60,11 +83,11 @@ class Game extends React.Component {
             <EndZone store={store} />
             <Suspense fallback={<Box />}>
               <Girl
-                action={this.props.action}
+                action={this.state.action}
                 girlPosition={[0, 0, 200]}
                 stopListening={stopListening}
                 changeWin={this.props.changeWin}
-                setAction={this.props.voiceAction}
+                setAction={this.voiceAction}
                 changePlaying={this.props.changePlaying}
                 store={store}
               />
@@ -76,7 +99,7 @@ class Game extends React.Component {
             <FrontPlane position={[0, 0, -800]} />
             <SidePlane
               rotation={[0, -Math.PI / 2, 0]}
-              position={[15, 0, -200]}
+              position={[13, 0, -200]}
             />
             <SidePlane
               rotation={[0, Math.PI / 2, 0]}
