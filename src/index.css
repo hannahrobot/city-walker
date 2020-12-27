@@ -21,8 +21,9 @@ body,
 }
 
 #root {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
+  /* height: 100vh; */
   font-family: "Titillium Web", sans-serif;
   background: linear-gradient(#272727, #000000);
 }
@@ -118,6 +119,7 @@ canvas {
 .title h1 {
   padding: 0;
   margin: 0;
+  /* font-size: 11.1vh; */
   font-size: 80px;
   font-weight: 500;
   text-shadow: -2px 2px 5px white;
@@ -129,7 +131,7 @@ canvas {
 }
 
 .definition p {
-  font-size: 18px;
+  font-size: 18em;
   letter-spacing: 0.1em;
 }
 
@@ -155,13 +157,14 @@ canvas {
 }
 
 .message p {
-  font-size: 18px;
+  font-size: 1.15em;
   font-style: none;
   letter-spacing: 0.1em;
+  margin-bottom: 5px;
 }
 
 #github {
-  position: absolute;
+  position: relative;
   bottom: 5%;
   width: 100%;
   text-align: center;
@@ -177,16 +180,24 @@ canvas {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 #slider-row p {
-  font-size: 18px;
+  font-size: 1.15em;
   letter-spacing: 0.1em;
-  padding: 10px;
+  padding: 0.5em;
 }
 
 .slider-row-ind {
   display: flex;
+}
+
+#ml-button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .all-buttons {
@@ -196,7 +207,7 @@ canvas {
   box-sizing: border-box;
   color: white;
   background: linear-gradient(#1f1f1f, #000000);
-  font-size: 34px;
+  font-size: 2.15em;
   border: 1px solid;
   background-color: transparent;
   text-decoration: uppercase;
@@ -290,6 +301,9 @@ canvas {
 }
 
 #button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 30px;
 }
 @keyframes appear {
@@ -380,7 +394,7 @@ div.modal-content h1 {
 .instruction-modal table {
   color: white;
   font-family: "Titillium Web", sans-serif;
-  font-size: 20px;
+  font-size: 1.25em;
   letter-spacing: 0.1em;
   /* background: linear-gradient(#1f1f1f, #000000); */
 }
