@@ -15,7 +15,7 @@ const useAudio = (url) => {
 
   useEffect(() => {
     const initialAudio = function (event) {
-      toggle();
+      // toggle();
       window.removeEventListener("click", initialAudio, false);
     };
     window.addEventListener("click", initialAudio, false);

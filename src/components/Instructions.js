@@ -5,7 +5,7 @@ class Instructions extends React.Component {
   constructor() {
     super();
     this.state = {
-      showModal: true,
+      showModal: false,
     };
     this.toggleInstructions = this.toggleInstructions.bind(this);
   }
