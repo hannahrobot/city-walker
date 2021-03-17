@@ -6,7 +6,7 @@ A live version of this app is available at https://city-walker.web.app/
 
 ## Gameplay Mechanics
 
-Midnight Train is a 3D movement simulation in which the player's movement is controlled not by keyboard commands, but by their personalized voice commands. The player's goal is to navigate through a 3D representation of a Train to get to the last car. The voice recognition model is built for customizing concise one syllable commands to traverse the world. Course completion is timed and saved when player has reached the goal.
+Midnight Train is a 3D simulation in which the player's movement is controlled not by keyboard commands, but by their personalized voice commands. The player's goal is to navigate through a 3D representation of a Train to get to the last car. The voice recognition model is built for customizing concise one syllable commands to traverse the world. Course completion is timed and saved when player has reached the goal.
 
 ## Technologies
 
